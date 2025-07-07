@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/innovation-screen/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Highcharts Scatter</title>
 
@@ -12,8 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-Cvo4bQLL.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BZpntfEU.css">
+    <script type="module" crossorigin src="/innovation-screen/assets/index-CNvjl0bQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/innovation-screen/assets/index-BIl3AC1j.css">
   </head>
   <body>
     <div id="app">
@@ -23,9 +23,10 @@
           <span class="column-title">Navigation</span>
         </div>
       </div>
-      <div class="separator">
+      <!-- <div class="separator">
         <button class="toggle-button"></button>
-      </div>
+      </div> -->
+      <vertical-separator direction="left"></vertical-separator>
 
       <main id="workspace">
         <div id="workspace-title">
@@ -34,31 +35,51 @@
           >
         </div>
 
-        <div style="margin-bottom: 10px">
+        <!-- <div style="margin-bottom: 10px">
           <label>
             <input type="checkbox" id="zoomToggle" checked />
             Enable Zoom
           </label>
-        </div>
+        </div> -->
 
         <div style="margin-bottom: 10px">
           <label>
             X-axis Min:
-            <input type="number" id="xMinInput" placeholder="Auto" />
+            <input
+              type="number"
+              id="xMinInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
           </label>
           <label>
             X-axis Max:
-            <input type="number" id="xMaxInput" placeholder="Auto" />
+            <input
+              type="number"
+              id="xMaxInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
           </label>
         </div>
         <div style="margin-bottom: 10px">
           <label>
             Y-axis Min:
-            <input type="number" id="yMinInput" placeholder="Auto" />
+            <input
+              type="number"
+              id="yMinInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
           </label>
           <label>
             Y-axis Max:
-            <input type="number" id="yMaxInput" placeholder="Auto" />
+            <input
+              type="number"
+              id="yMaxInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
           </label>
         </div>
 
@@ -71,9 +92,10 @@
           style="width: 100%; min-height: 700px max-height: 100vh"
         ></div>
       </main>
-      <div class="separator">
+      <!-- <div class="separator">
         <button class="toggle-button"></button>
-      </div>
+      </div> -->
+      <vertical-separator direction="right"></vertical-separator>
       <div id="action">
         <div class="column-header">
           <span class="column-title">Action</span>

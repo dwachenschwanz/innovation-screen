@@ -167,7 +167,7 @@ function renderChart(data, enableZoom = true) {
   });
 }
 
-fetch("/data.json")
+fetch("data.json")
   .then((res) => {
     if (!res.ok) throw new Error("Failed to load data.json");
     return res.json();
