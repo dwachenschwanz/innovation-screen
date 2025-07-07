@@ -35,11 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (nearestColumnDiv) {
         console.log("Toggling .collapsed on:", nearestColumnDiv.id);
+
         console.log(
           "Before:",
           nearestColumnDiv.classList.contains("collapsed")
         );
-        nearestColumnDiv.classList.toggle("collapsed", toggled);
+        // nearestColumnDiv.classList.toggle("collapsed", toggled);
+        document
+          .getElementById(nearestColumnDiv.id)
+          .classList.toggle("collapsed");
         console.log("After:", nearestColumnDiv.classList.contains("collapsed"));
       } else {
         console.warn("No panel found near separator.");
