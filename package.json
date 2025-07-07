@@ -12,6 +12,7 @@
     "vite": "^7.0.0"
   },
   "dependencies": {
-    "highcharts": "^12.3.0"
+    "highcharts": "^12.3.0",
+    "primeicons": "^7.0.0"
   }
 }

@@ -76,10 +76,45 @@ body {
 
 #navigation,
 #action {
+  width: 270px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--app-background-color);
   color: var(--app-color);
-  height: 100vh;
-  width: 270px;
+  transition: width 0.3s ease;
+}
+
+#navigation .column-header #action .column-header {
+  padding: 16px;
+}
+
+#navigation.collapsed,
+#action.collapsed {
+  width: 50px;
+  align-items: center; /* centers contents horizontally */
+  justify-content: center; /* centers contents vertically */
+}
+
+#navigation.collapsed .column-header,
+#action.collapsed .column-header {
+  writing-mode: vertical-lr; /* helps layout */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+#navigation.collapsed .column-title,
+#action.collapsed .column-title {
+  transform: rotate(180deg); /* flip vertically to match left-to-right layout */
+  transform-origin: center;
+  text-align: flex-start;
+  /* font-size: 0.8rem; */
+  white-space: nowrap;
+  padding: 0 0 41px 0;
 }
 
 .separator {
