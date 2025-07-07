@@ -1,0 +1,371 @@
+[
+  {
+    "Projects": "Breath Strips",
+    "O - NPV Operating Profit": 1.2,
+    "O - Overall Probability of Success": 0.13,
+    "C - Country": "Austria",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "Green",
+    "C - Project_Status": "Proposed"
+  },
+  {
+    "Projects": "Shoe Inserts",
+    "O - NPV Operating Profit": 204.27,
+    "O - Overall Probability of Success": 0.54,
+    "C - Country": "Brazil",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Green",
+    "C - Project_Status": "Proposed"
+  },
+  {
+    "Projects": "Flushables",
+    "O - NPV Operating Profit": 1532.13,
+    "O - Overall Probability of Success": 0.77,
+    "C - Country": "Argentina",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Pocket Pals",
+    "O - NPV Operating Profit": 60.61,
+    "O - Overall Probability of Success": 0.68,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Red",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Test",
+    "O - NPV Operating Profit": 0,
+    "O - Overall Probability of Success": 0.04,
+    "C - Country": "",
+    "C - Line_Of_Business": "",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Oven",
+    "O - NPV Operating Profit": 304.13,
+    "O - Overall Probability of Success": 0.68,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Range Top",
+    "O - NPV Operating Profit": 196.59,
+    "O - Overall Probability of Success": 0.81,
+    "C - Country": "",
+    "C - Line_Of_Business": "IndustrialProducts",
+    "C - Project_Health": "",
+    "C - Project_Status": "Proposed"
+  },
+  {
+    "Projects": "Freezer",
+    "O - NPV Operating Profit": 273.65,
+    "O - Overall Probability of Success": 0.28,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Energy Efficient Refrigerator",
+    "O - NPV Operating Profit": 261.9,
+    "O - Overall Probability of Success": 0.9,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Solar Dryer",
+    "O - NPV Operating Profit": 28.95,
+    "O - Overall Probability of Success": 0.61,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Flushables",
+    "O - NPV Operating Profit": 1532.13,
+    "O - Overall Probability of Success": 0.77,
+    "C - Country": "Argentina",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Zip Shoes",
+    "O - NPV Operating Profit": 12.02,
+    "O - Overall Probability of Success": 0.81,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "Green",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Cubic Balls",
+    "O - NPV Operating Profit": 530.03,
+    "O - Overall Probability of Success": 1,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Super Tee",
+    "O - NPV Operating Profit": 891.2,
+    "O - Overall Probability of Success": 0.69,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Auto Bowl",
+    "O - NPV Operating Profit": 23.36,
+    "O - Overall Probability of Success": 0.68,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "test",
+    "O - NPV Operating Profit": 0,
+    "O - Overall Probability of Success": 0.04,
+    "C - Country": "",
+    "C - Line_Of_Business": "",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Self-Sterilizing Keyboard",
+    "O - NPV Operating Profit": 7.88,
+    "O - Overall Probability of Success": 0.54,
+    "C - Country": "",
+    "C - Line_Of_Business": "IndustrialProducts",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Breath Strips",
+    "O - NPV Operating Profit": 19.81,
+    "O - Overall Probability of Success": 0.77,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Shoe Inserts",
+    "O - NPV Operating Profit": 185.9,
+    "O - Overall Probability of Success": 0.54,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Flushables",
+    "O - NPV Operating Profit": 1404.22,
+    "O - Overall Probability of Success": 0.22,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Red",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Pocket Pals",
+    "O - NPV Operating Profit": 53.76,
+    "O - Overall Probability of Success": 0.61,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Red",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Oven",
+    "O - NPV Operating Profit": 277.44,
+    "O - Overall Probability of Success": 0.25,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Range Top",
+    "O - NPV Operating Profit": 178.98,
+    "O - Overall Probability of Success": 0.72,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Freezer",
+    "O - NPV Operating Profit": 249.81,
+    "O - Overall Probability of Success": 0.09,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Energy Efficient Refrigerator",
+    "O - NPV Operating Profit": 238.3,
+    "O - Overall Probability of Success": 0.53,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Solar Dryer",
+    "O - NPV Operating Profit": 25.72,
+    "O - Overall Probability of Success": 0.36,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Zip Shoes",
+    "O - NPV Operating Profit": 9.36,
+    "O - Overall Probability of Success": 0.81,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "Green",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Cubic Balls",
+    "O - NPV Operating Profit": 485.85,
+    "O - Overall Probability of Success": 0.9,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Super Tee",
+    "O - NPV Operating Profit": 816.21,
+    "O - Overall Probability of Success": 0.69,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Auto Bowl",
+    "O - NPV Operating Profit": 20.18,
+    "O - Overall Probability of Success": 0.04,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Self-Sterilizing Keyboard",
+    "O - NPV Operating Profit": 6.7,
+    "O - Overall Probability of Success": 0.21,
+    "C - Country": "",
+    "C - Line_Of_Business": "IndustrialProducts",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Breath Strips",
+    "O - NPV Operating Profit": -14.42,
+    "O - Overall Probability of Success": 0.13,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Green",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Shoe Inserts",
+    "O - NPV Operating Profit": 147.71,
+    "O - Overall Probability of Success": 0.28,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Yellow",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Flushables",
+    "O - NPV Operating Profit": 934.53,
+    "O - Overall Probability of Success": 0.48,
+    "C - Country": "",
+    "C - Line_Of_Business": "ConsumerProducts",
+    "C - Project_Health": "Red",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Oven",
+    "O - NPV Operating Profit": 372.41,
+    "O - Overall Probability of Success": 0.12,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Range Top",
+    "O - NPV Operating Profit": 178.98,
+    "O - Overall Probability of Success": 0.36,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Energy Efficient Refrigerator",
+    "O - NPV Operating Profit": 167.28,
+    "O - Overall Probability of Success": 0.2,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Solar Dryer",
+    "O - NPV Operating Profit": 29.35,
+    "O - Overall Probability of Success": 0.15,
+    "C - Country": "",
+    "C - Line_Of_Business": "HouseholdAppliances",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Zip Shoes",
+    "O - NPV Operating Profit": 9.36,
+    "O - Overall Probability of Success": 0.33,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "Green",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Cubic Balls",
+    "O - NPV Operating Profit": 485.85,
+    "O - Overall Probability of Success": 0.95,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": ""
+  },
+  {
+    "Projects": "Super Tee",
+    "O - NPV Operating Profit": 816.21,
+    "O - Overall Probability of Success": 0.04,
+    "C - Country": "",
+    "C - Line_Of_Business": "SportingGoods",
+    "C - Project_Health": "",
+    "C - Project_Status": "%"
+  }
+]

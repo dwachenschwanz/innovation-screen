@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/innovation-screen/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Highcharts Scatter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/innovation-screen/assets/index-7xkq14q-.js"></script>
+    <link rel="stylesheet" crossorigin href="/innovation-screen/assets/index-BIl3AC1j.css">
+  </head>
+  <body>
+    <div id="app">
+      <nav id="sidebar"></nav>
+      <div id="navigation">
+        <div class="column-header">
+          <span class="column-title">Navigation</span>
+        </div>
+      </div>
+      <!-- <div class="separator">
+        <button class="toggle-button"></button>
+      </div> -->
+      <vertical-separator direction="left"></vertical-separator>
+
+      <main id="workspace">
+        <div id="workspace-title">
+          <span class="workspace-header"
+            >Innovation Screen for Standard Demo</span
+          >
+        </div>
+
+        <!-- <div style="margin-bottom: 10px">
+          <label>
+            <input type="checkbox" id="zoomToggle" checked />
+            Enable Zoom
+          </label>
+        </div> -->
+
+        <div style="margin-bottom: 10px">
+          <label>
+            X-axis Min:
+            <input
+              type="number"
+              id="xMinInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
+          </label>
+          <label>
+            X-axis Max:
+            <input
+              type="number"
+              id="xMaxInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
+          </label>
+        </div>
+        <div style="margin-bottom: 10px">
+          <label>
+            Y-axis Min:
+            <input
+              type="number"
+              id="yMinInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
+          </label>
+          <label>
+            Y-axis Max:
+            <input
+              type="number"
+              id="yMaxInput"
+              style="text-align: center"
+              placeholder="Auto"
+            />
+          </label>
+        </div>
+
+        <!-- <div
+          id="container"
+          style="width: 100%; height: 100%; min-height: 300px"
+        ></div> -->
+        <div
+          id="container"
+          style="width: 100%; min-height: 700px max-height: 100vh"
+        ></div>
+      </main>
+      <!-- <div class="separator">
+        <button class="toggle-button"></button>
+      </div> -->
+      <vertical-separator direction="right"></vertical-separator>
+      <div id="action">
+        <div class="column-header">
+          <span class="column-title">Action</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
