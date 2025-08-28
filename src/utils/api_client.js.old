@@ -1,0 +1,97 @@
+import { SERVER_URL } from "/config.js";
+
+export class ApiClient {
+  // Singleton instance
+  static instance;
+  static token;
+
+  constructor(baseURL) {
+    if (ApiClient.instance) {
+      return ApiClient.instance;
+    }
+    this.baseURL = baseURL;
+    console.log("baseURL: ", baseURL);
+    this.token = null; // JWT token will be stored here
+    ApiClient.instance = this;
+    return this;
+  }
+
+  // Method to set the JWT token
+  setToken(token) {
+    // this.token = token;
+    ApiClient.token = token;
+  }
+
+  // Helper method for sending requests
+  async request(endpoint, method = "GET", data = null, headers = {}) {
+    // Add Authorization header if a token is available
+    if (ApiClient.token) {
+      headers["Authorization"] = `jwttoken ${ApiClient.token}`;
+    }
+
+    const config = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...headers,
+      },
+    };
+
+    if (data) {
+      config.body = JSON.stringify(data);
+    }
+
+    try {
+      const response = await fetch(`${this.baseURL}${endpoint}`, config);
+
+      // Check for 403 Forbidden status
+      if (response.status === 403) {
+        // You can still try to read the response body
+        const errorResponse = await response.json(); // or .text(), depending on response type
+        throw new Error(JSON.stringify(errorResponse));
+        // throw new Error(`403 Forbidden: ${JSON.stringify(errorResponse)}`);
+      }
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      } else {
+        const result = await response.json(); // Assuming response is JSON
+        if (result.token) {
+          console.log("token found: ", result.token);
+          this.setToken(result.token);
+        } else this.setToken(null);
+
+        return result;
+      }
+
+      return await response.json(); // Assuming response is JSON
+    } catch (error) {
+      console.error("Error:", error);
+      throw error;
+    }
+  }
+
+  // GET request
+  get(endpoint, headers = {}) {
+    return this.request(endpoint, "GET", null, headers);
+  }
+
+  // POST request
+  post(endpoint, data, headers = {}) {
+    console.log("POST: ", endpoint, data, headers);
+    return this.request(endpoint, "POST", data, headers);
+  }
+
+  // PUT request
+  put(endpoint, data, headers = {}) {
+    return this.request(endpoint, "PUT", data, headers);
+  }
+
+  // DELETE request
+  delete(endpoint, headers = {}) {
+    return this.request(endpoint, "DELETE", null, headers);
+  }
+}
+
+// Create and export a variable (instance) of ApiClient
+export const apiClient = new ApiClient(SERVER_URL);

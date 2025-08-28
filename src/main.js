@@ -3,6 +3,8 @@ import "./style.css";
 import "primeicons/primeicons.css";
 
 import "./components/vertical-separator.js";
+import { smartorg } from "./utils/smartorg.js";
+import { auth } from "./utils/auth.js";
 
 let chart;
 
@@ -25,7 +27,34 @@ const chartBg = rootStyle.getPropertyValue("--app-background-color").trim();
 //   }
 // });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const username = "Dave";
+  const password = "B!tterr00t";
+
+  const credentials = { username, password };
+  console.log("credentials: ", credentials);
+
+  try {
+    const result = await smartorg.getToken(credentials);
+    auth.setSession({ token: result.token, user: result.data });
+
+    if (auth.isAuthenticated()) {
+      const user = auth.getUser(); // ← your saved `data` object
+      console.log("Hello,", user.username);
+    }
+
+    console.log(result);
+  } catch (error) {
+    // Handle network or other errors
+    console.log(`Error: ${error.message}`);
+    if (JSON.parse(error.message).message === "AUTHENTICATION_FAILED") {
+      errorText.innerText = "Username or password does not match our record!";
+      console.log("authentication failed");
+    }
+    console.log(error);
+    console.log(error.message);
+  }
+
   const allSeparators = document.querySelectorAll("vertical-separator");
 
   allSeparators.forEach((separator) => {
@@ -92,10 +121,15 @@ function renderChart(data, enableZoom = true) {
     },
 
     title: {
-      text: "Overall Probability of Success vs NPV Operating Profit",
+      text: "Innovation Screen",
     },
     xAxis: {
-      title: { text: "NPV Operating Profit ($M)" },
+      title: {
+        text: "NPV Operating Profit ($M)",
+        style: {
+          fontWeight: "bold",
+        },
+      },
       min: !isNaN(xMin) ? xMin : undefined,
       max: !isNaN(xMax) ? xMax : undefined,
 
@@ -117,12 +151,17 @@ function renderChart(data, enableZoom = true) {
       ],
     },
     yAxis: {
-      title: { text: "Overall Probability of Success" },
+      title: {
+        text: "Overall Probability of Success",
+        style: {
+          fontWeight: "bold",
+        },
+      },
       min: 0,
       max: 1,
       tickInterval: 0.1,
       min: !isNaN(yMin) ? yMin : undefined,
-      max: !isNaN(yMax) ? yMax : undefined,
+      max: !isNaN(yMax) ? yMax : 1,
       plotLines: [
         {
           color: "rgb(104,204,205)", // line color
@@ -134,6 +173,7 @@ function renderChart(data, enableZoom = true) {
     },
 
     tooltip: {
+      enabled: false,
       useHTML: true,
       headerFormat: "<b>{point.name}</b><br/>",
       pointFormat: `
@@ -150,6 +190,8 @@ function renderChart(data, enableZoom = true) {
         dataLabels: {
           enabled: true,
           format: "{point.name}",
+          allowOverlap: false,
+          // crop: false,
           style: {
             fontSize: "9px",
             textOutline: "none",
@@ -175,23 +217,23 @@ fetch("data.json")
   .then((data) => {
     renderChart(data);
 
-    document.getElementById("zoomToggle").addEventListener("change", (e) => {
-      const zoomEnabled = e.target.checked;
-      renderChart(data, zoomEnabled);
-    });
-    document
-      .getElementById("xMinInput")
-      .addEventListener("input", () => renderChart(data));
-    document
-      .getElementById("xMaxInput")
-      .addEventListener("input", () => renderChart(data));
+    // document.getElementById("zoomToggle").addEventListener("change", (e) => {
+    //   const zoomEnabled = e.target.checked;
+    //   renderChart(data, zoomEnabled);
+    // });
+    // document
+    //   .getElementById("xMinInput")
+    //   .addEventListener("input", () => renderChart(data));
+    // document
+    //   .getElementById("xMaxInput")
+    //   .addEventListener("input", () => renderChart(data));
 
-    document
-      .getElementById("yMinInput")
-      .addEventListener("input", () => renderChart(data));
-    document
-      .getElementById("yMaxInput")
-      .addEventListener("input", () => renderChart(data));
+    // document
+    //   .getElementById("yMinInput")
+    //   .addEventListener("input", () => renderChart(data));
+    // document
+    //   .getElementById("yMaxInput")
+    //   .addEventListener("input", () => renderChart(data));
   })
   .catch((err) => console.error("Error:", err));
 
