@@ -8,6 +8,10 @@
   --app-color: #212529;
   --app-menu-color: #ebf0f6;
 
+  --login-background-color: #f4faff;
+  --login-color: #f4faff;
+  --button-background-color: #264c5b;
+
   --app-sidebar-width: 78.077px;
 
   --separator-background-color: #efefef;
@@ -42,6 +46,21 @@ body {
   background-color: var(--app-background-color);
   color: var(--app-color);
 }
+
+#login-wrapper {
+  /* display: flex;
+  justify-content: center; */
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+
+  font-family: var(--global-font-family);
+  font-size: var(--global-font-size);
+
+  background-color: var(--app-background-color);
+  color: var(--app-color);
+}
+
 #app {
   background-color: var(--app-background-color);
   width: 100%;
@@ -265,4 +284,14 @@ body,
   margin: 0;
   border: 1px solid transparent; /* optional visual boundary */
   position: relative;
+}
+
+.hidden {
+  display: none;
+}
+
+login-form {
+  /* display: flex;
+  justify-content: center; */
+  margin: 0 auto;
 }

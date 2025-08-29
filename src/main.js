@@ -3,6 +3,7 @@ import "./style.css";
 import "primeicons/primeicons.css";
 
 import "./components/vertical-separator.js";
+import "./components/login-form.js";
 import { smartorg } from "./utils/smartorg.js";
 import { auth } from "./utils/auth.js";
 
@@ -28,32 +29,32 @@ const chartBg = rootStyle.getPropertyValue("--app-background-color").trim();
 // });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const username = "Dave";
-  const password = "B!tterr00t";
+  // const username = "Dave";
+  // const password = "B!tterr00t";
 
-  const credentials = { username, password };
-  console.log("credentials: ", credentials);
+  // const credentials = { username, password };
+  // console.log("credentials: ", credentials);
 
-  try {
-    const result = await smartorg.getToken(credentials);
-    auth.setSession({ token: result.token, user: result.data });
+  // try {
+  //   const result = await smartorg.getToken(credentials);
+  //   auth.setSession({ token: result.token, user: result.data });
 
-    if (auth.isAuthenticated()) {
-      const user = auth.getUser(); // ← your saved `data` object
-      console.log("Hello,", user.username);
-    }
+  //   if (auth.isAuthenticated()) {
+  //     const user = auth.getUser(); // ← your saved `data` object
+  //     console.log("Hello,", user.username);
+  //   }
 
-    console.log(result);
-  } catch (error) {
-    // Handle network or other errors
-    console.log(`Error: ${error.message}`);
-    if (JSON.parse(error.message).message === "AUTHENTICATION_FAILED") {
-      errorText.innerText = "Username or password does not match our record!";
-      console.log("authentication failed");
-    }
-    console.log(error);
-    console.log(error.message);
-  }
+  //   console.log(result);
+  // } catch (error) {
+  //   // Handle network or other errors
+  //   console.log(`Error: ${error.message}`);
+  //   if (JSON.parse(error.message).message === "AUTHENTICATION_FAILED") {
+  //     errorText.innerText = "Username or password does not match our record!";
+  //     console.log("authentication failed");
+  //   }
+  //   console.log(error);
+  //   console.log(error.message);
+  // }
 
   const allSeparators = document.querySelectorAll("vertical-separator");
 
