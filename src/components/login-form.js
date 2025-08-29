@@ -200,7 +200,6 @@ export class LoginForm extends HTMLElement {
           label { font-size: 13px; color:#374151; }
           input[type="text"], input[type="password"] { border: 1px solid #d1d5db; border-radius: 6px; padding: 10px; font-size: 14px; }
           .pw-row { position: relative; }
-          .pw-toggle { position:absolute; right:8px; top:50%; transform: translateY(-50%); border:0; background:transparent; cursor:pointer; font-size:12px; color:#6b7280; }
           .remember { display:flex; align-items:center; gap:8px; margin: 2px 0 8px; }
           button[type="submit"] { padding: 10px; background: var(--button-background-color, #3b82f6); color:#fff; border:0; border-radius:6px; cursor:pointer; font-weight:600; }
           button[disabled] { opacity:.7; cursor:not-allowed; }
@@ -218,13 +217,13 @@ export class LoginForm extends HTMLElement {
             </div>
             <form id="loginForm" novalidate>
               <label for="username">Username</label>
-              <input id="username" name="username" type="text" autocomplete="username" required />
+              <input id="username" name="username" type="text" placeholder="Enter username..." autocomplete="username" required />
 
               <label for="password">Password</label>
-              <div class="pw-row">
-                <input id="password" name="password" type="password" autocomplete="current-password" required />
-                <button id="password-toggle" type="button" class="pw-toggle" aria-label="Show password">Show</button>
-              </div>
+             
+                <input id="password" name="password" type="password" placeholder="Enter password..." autocomplete="current-password" required />
+                
+             
 
               <div class="remember">
                 <input id="remember" name="remember" type="checkbox" />
@@ -238,15 +237,6 @@ export class LoginForm extends HTMLElement {
             <div class="version">Version: Vanilla RAK 0.2</div>
           </div>
         </div>`;
-  }
-
-  togglePassword() {
-    const input = this.$("#password");
-    const btn = this.$("#password-toggle");
-    const isPw = input.type === "password";
-    input.type = isPw ? "text" : "password";
-    btn.textContent = isPw ? "Hide" : "Show";
-    btn.setAttribute("aria-label", isPw ? "Hide password" : "Show password");
   }
 
   async onSubmit(e) {

@@ -29,6 +29,10 @@ const chartBg = rootStyle.getPropertyValue("--app-background-color").trim();
 // });
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // One-time listener (or keep it global)
+  document.addEventListener("login-success", (e) => {
+    console.log("login-sucess");
+  });
   // const username = "Dave";
   // const password = "B!tterr00t";
 
