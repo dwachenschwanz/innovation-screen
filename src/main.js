@@ -4,6 +4,7 @@ import "primeicons/primeicons.css";
 
 import "./components/vertical-separator.js";
 import "./components/login-form.js";
+import { appState, actions } from "./state/appState.js";
 import { smartorg } from "./utils/smartorg.js";
 import { auth } from "./utils/auth.js";
 
@@ -28,11 +29,118 @@ const chartBg = rootStyle.getPropertyValue("--app-background-color").trim();
 //   }
 // });
 
+function buildAppShell(user) {
+  console.log("buildAppShell (user):  ", user);
+
+  // const root = document.getElementById("app");
+  // console.log("root", root);
+  // const login_wrapper = document.getElementById("login-wrapper");
+  // console.log("login_wrapper", login_wrapper);
+  // login_wrapper.classList.toggle("hidden");
+  // root.classList.toggle("hidden");
+
+  // root.replaceChildren(); // clear
+
+  // const loadingSpinner = document.createElement("loading-spinner");
+  // root.appendChild(loadingSpinner);
+
+  // const sidebar = document.createElement("side-bar");
+  // sidebar.dataset.user = JSON.stringify(user);
+  // root.appendChild(sidebar);
+
+  // const main = document.createElement("main");
+  // main.classList.add("main-content");
+
+  // const leftMenuIcons = [
+  //   {
+  //     id: "treefilter",
+  //     image: "../../assets/icons/funnel.svg",
+  //     tooltip: "Tree Filter",
+  //   },
+  //   {
+  //     id: "search",
+  //     image: "../../assets/icons/magnifier.svg",
+  //     tooltip: "Search",
+  //   },
+  //   {
+  //     id: "options",
+  //     image: "../../assets/icons/cog-wheel.svg",
+  //     tooltip: "More Options",
+  //   },
+  //   {
+  //     id: "reportoptions",
+  //     image: "../../assets/icons/filter.svg",
+  //     tooltip: "Report Options",
+  //   },
+  // ];
+  // const rightMenuIcons = [
+  //   {
+  //     id: "specify",
+  //     image: "../../assets/icons/filter.svg",
+  //     tooltip: "Specify",
+  //   },
+  // ];
+
+  // const leftMenu = document.createElement("column-menu");
+  // leftMenu.dataset.headerText = "NAVIGATION";
+  // leftMenu.dataset.menuIcons = JSON.stringify(leftMenuIcons);
+  // main.appendChild(leftMenu);
+
+  // const leftSep = document.createElement("vertical-separator");
+  // leftSep.dataset.position = "left";
+  // main.appendChild(leftSep);
+
+  // const workspace = document.createElement("workspace-area");
+  // main.appendChild(workspace);
+
+  // const rightSep = document.createElement("vertical-separator");
+  // rightSep.dataset.position = "right";
+  // main.appendChild(rightSep);
+
+  // const rightMenu = document.createElement("column-menu");
+  // rightMenu.dataset.headerText = "ACTION";
+  // rightMenu.dataset.menuIcons = JSON.stringify(rightMenuIcons);
+  // main.appendChild(rightMenu);
+
+  // root.appendChild(main);
+}
+
+function render() {
+  const { user } = appState.get();
+  // root.replaceChildren();
+  if (!user) {
+    // root.appendChild(document.createElement("login-form"));
+    document.getElementById("login-wrapper").classList.toggle("hidden", false);
+    document.getElementById("app").classList.toggle("hidden", true);
+  } else {
+    document.getElementById("login-wrapper").classList.toggle("hidden", true);
+    document.getElementById("app").classList.toggle("hidden", false);
+    buildAppShell(user);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
-  // One-time listener (or keep it global)
+  // Respond to login-form events
   document.addEventListener("login-success", (e) => {
-    console.log("login-sucess");
+    actions.loginSuccess(e.detail); // updates state + auth
+    render();
   });
+
+  document.addEventListener("login-error", (e) => {
+    console.warn("Login failed:", e.detail?.error);
+  });
+
+  // Re-render on relevant state changes (auth only)
+  const unsubscribe = appState.subscribe(
+    (s) => !!s.user,
+    () => render()
+  );
+  // render();
+  // One-time listener (or keep it global)
+  // document.addEventListener("login-success", (e) => {
+  //   console.log("login-sucess");
+  //   buildAppShell(e.detail);
+  // });
   // const username = "Dave";
   // const password = "B!tterr00t";
 

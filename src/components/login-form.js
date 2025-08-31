@@ -9,7 +9,7 @@
 
 import { smartorg } from "../utils/smartorg.js";
 import { setLoginCookie, setBooleanCookie } from "../utils/cookies";
-
+// import { auth } from "../utils/auth.js";
 import logoUrl from "../assets/images/smartorg-transparent-logo.png?url";
 
 export class LoginForm extends HTMLElement {
@@ -268,11 +268,14 @@ export class LoginForm extends HTMLElement {
       // Delegate auth to smartorg wrapper (handles signing + apiClient.post)
       const result = await smartorg.getToken({ username, password });
 
+      // Persist session via auth.js and rehydrate api client
+      //   auth.setSession({ token: result.token, user: result.data });
+
       // Persist server-side state
-      setLoginCookie("username", result.data.username, 30);
-      setLoginCookie("user_uid", result.data.uid, 30);
-      setBooleanCookie("is_admin", result.data.is_admin);
-      setLoginCookie("smartorg_api_jwt", result.token, 30);
+      //   setLoginCookie("username", result.data.username, 30);
+      //   setLoginCookie("user_uid", result.data.uid, 30);
+      //   setBooleanCookie("is_admin", result.data.is_admin);
+      //   setLoginCookie("smartorg_api_jwt", result.token, 30);
 
       // Remember username choice
       if (remember)
