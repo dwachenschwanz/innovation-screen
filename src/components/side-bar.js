@@ -97,7 +97,8 @@ export class SideBar extends HTMLElement {
       <style>
         :host { display: block; }
         .nav-bar { box-sizing: border-box; height: 100%; max-width: 78px; width: 78px; background-color: var(--app-sidebar-color, #1f2937); color: #fff; display: flex; flex-direction: column; align-items: center; padding: 10px 0px 10px 0px; position: relative; }
-        .nav-bar img { max-width: 97%; margin-top: 13px; padding-bottom: 16px; width: 25px;}
+        .nav-bar img { max-width: 97%; margin-top: 13px; padding-bottom: 16px; width: 30px;}
+        
         .brand { cursor: nwse-resize; }
         .sideIcon { position: relative; margin-bottom: 38px;}
         .sideIcon a {
@@ -128,7 +129,7 @@ export class SideBar extends HTMLElement {
       <div class="nav-bar">
         <div class="brandIcon">
 
-          <img class="brand" src="${base}images/smartorg-logo.png" alt="SmartOrg" />
+          <img class="brand" src="${base}images/smartorg-logo.png" alt="SmartOrg" style="width: 42px; height: 42px;"/>
           </div>
 
         <div class="sideIcon">
