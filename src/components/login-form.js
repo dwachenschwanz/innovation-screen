@@ -162,6 +162,7 @@ export class LoginForm extends HTMLElement {
   //   }
 
   render() {
+    const base = import.meta.env.BASE_URL;
     return /*html*/ `
         <style>
           :host { display: block; }
@@ -213,7 +214,7 @@ export class LoginForm extends HTMLElement {
         <div class="login">
           <div class="card">
             <div class="logo-wrap">
-              <img class="logo" src="${logoUrl}" alt="SmartOrg" />
+              <img class="logo" src="${base}images/smartorg-transparent-logo.png" alt="SmartOrg" />
             </div>
             <form id="loginForm" novalidate>
               <label for="username">Username</label>

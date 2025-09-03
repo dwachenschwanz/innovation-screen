@@ -8,7 +8,7 @@ import "./components/side-bar.js";
 
 import { appState, actions } from "./state/appState.js";
 import { smartorg } from "./utils/smartorg.js";
-// import { auth } from "./utils/auth.js";
+import { auth } from "./utils/auth.js";
 
 let chart;
 
@@ -17,31 +17,158 @@ const vertLinePos = 200;
 const rootStyle = getComputedStyle(document.documentElement);
 const chartBg = rootStyle.getPropertyValue("--app-background-color").trim();
 
-// main.js
+// document.addEventListener("DOMContentLoaded", () => {
+//   const separator = document.querySelector(
+//     "vertical-separator[direction='left']"
+//   );
+//   const nearestColumnDiv = findClosestColumnHeaderDiv(separator);
 
-// --- 1) Render shells based on auth state managed by appState/actions ---
-function renderAppShell() {
-  const { user } = appState.get();
-  const login = document.getElementById("login-wrapper");
-  const app = document.getElementById("app");
+//   if (nearestColumnDiv) {
+//     console.log("Closest div with .column-header:", nearestColumnDiv);
+//     nearestColumnDiv.classList.toggle("collapsed");
+//   } else {
+//     console.log("No matching div found.");
+//   }
+// });
 
-  // Guard for missing nodes in early loads
-  if (!login || !app) return;
+function buildAppShell(user) {
+  console.log("buildAppShell (user):  ", user);
 
-  const isAuthed = !!user;
-  login.classList.toggle("hidden", isAuthed);
-  app.classList.toggle("hidden", !isAuthed);
+  // const root = document.getElementById("app");
+  // console.log("root", root);
+  // const login_wrapper = document.getElementById("login-wrapper");
+  // console.log("login_wrapper", login_wrapper);
+  // login_wrapper.classList.toggle("hidden");
+  // root.classList.toggle("hidden");
 
-  // If you have charts/layout that need reflow after shell flip, do it here:
-  // if (window.chart) window.chart.reflow();
+  // root.replaceChildren(); // clear
+
+  // const loadingSpinner = document.createElement("loading-spinner");
+  // root.appendChild(loadingSpinner);
+
+  // const sidebar = document.createElement("side-bar");
+  // sidebar.dataset.user = JSON.stringify(user);
+  // root.appendChild(sidebar);
+
+  // const main = document.createElement("main");
+  // main.classList.add("main-content");
+
+  // const leftMenuIcons = [
+  //   {
+  //     id: "treefilter",
+  //     image: "../../assets/icons/funnel.svg",
+  //     tooltip: "Tree Filter",
+  //   },
+  //   {
+  //     id: "search",
+  //     image: "../../assets/icons/magnifier.svg",
+  //     tooltip: "Search",
+  //   },
+  //   {
+  //     id: "options",
+  //     image: "../../assets/icons/cog-wheel.svg",
+  //     tooltip: "More Options",
+  //   },
+  //   {
+  //     id: "reportoptions",
+  //     image: "../../assets/icons/filter.svg",
+  //     tooltip: "Report Options",
+  //   },
+  // ];
+  // const rightMenuIcons = [
+  //   {
+  //     id: "specify",
+  //     image: "../../assets/icons/filter.svg",
+  //     tooltip: "Specify",
+  //   },
+  // ];
+
+  // const leftMenu = document.createElement("column-menu");
+  // leftMenu.dataset.headerText = "NAVIGATION";
+  // leftMenu.dataset.menuIcons = JSON.stringify(leftMenuIcons);
+  // main.appendChild(leftMenu);
+
+  // const leftSep = document.createElement("vertical-separator");
+  // leftSep.dataset.position = "left";
+  // main.appendChild(leftSep);
+
+  // const workspace = document.createElement("workspace-area");
+  // main.appendChild(workspace);
+
+  // const rightSep = document.createElement("vertical-separator");
+  // rightSep.dataset.position = "right";
+  // main.appendChild(rightSep);
+
+  // const rightMenu = document.createElement("column-menu");
+  // rightMenu.dataset.headerText = "ACTION";
+  // rightMenu.dataset.menuIcons = JSON.stringify(rightMenuIcons);
+  // main.appendChild(rightMenu);
+
+  // root.appendChild(main);
 }
 
-// --- 2) Initial render on DOM ready ---
-document.addEventListener("DOMContentLoaded", () => {
-  // Your previous code likely added a resize->reload. Make sure it's removed.
-  // If it was declared elsewhere, delete that code; do NOT reload on resize.
+function render() {
+  const { user } = appState.get();
+  // root.replaceChildren();
+  if (!user) {
+    // root.appendChild(document.createElement("login-form"));
+    document.getElementById("login-wrapper").classList.toggle("hidden", false);
+    document.getElementById("app").classList.toggle("hidden", true);
+  } else {
+    document.getElementById("login-wrapper").classList.toggle("hidden", true);
+    document.getElementById("app").classList.toggle("hidden", false);
+    buildAppShell(user);
+  }
+}
 
-  renderAppShell();
+document.addEventListener("DOMContentLoaded", async () => {
+  // Respond to login-form events
+  document.addEventListener("login-success", (e) => {
+    actions.loginSuccess(e.detail); // updates state + auth
+    render();
+  });
+
+  document.addEventListener("login-error", (e) => {
+    console.warn("Login failed:", e.detail?.error);
+  });
+
+  // Re-render on relevant state changes (auth only)
+  // const unsubscribe = appState.subscribe(
+  //   (s) => !!s.user,
+  //   () => render()
+  // );
+  // render();
+  // One-time listener (or keep it global)
+  // document.addEventListener("login-success", (e) => {
+  //   console.log("login-sucess");
+  //   buildAppShell(e.detail);
+  // });
+  // const username = "Dave";
+  // const password = "B!tterr00t";
+
+  // const credentials = { username, password };
+  // console.log("credentials: ", credentials);
+
+  // try {
+  //   const result = await smartorg.getToken(credentials);
+  //   auth.setSession({ token: result.token, user: result.data });
+
+  //   if (auth.isAuthenticated()) {
+  //     const user = auth.getUser(); // ← your saved `data` object
+  //     console.log("Hello,", user.username);
+  //   }
+
+  //   console.log(result);
+  // } catch (error) {
+  //   // Handle network or other errors
+  //   console.log(`Error: ${error.message}`);
+  //   if (JSON.parse(error.message).message === "AUTHENTICATION_FAILED") {
+  //     errorText.innerText = "Username or password does not match our record!";
+  //     console.log("authentication failed");
+  //   }
+  //   console.log(error);
+  //   console.log(error.message);
+  // }
 
   const allSeparators = document.querySelectorAll("vertical-separator");
 
@@ -67,37 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
-
-// --- 3) Re-render whenever auth state changes (login/logout) ---
-appState.subscribe(
-  (s) => s.user, // select just the user slice
-  () => renderAppShell() // flip shells on any change
-);
-
-// --- 4) Gentle resize handling: layout-only work, no reloads ---
-let resizeTick;
-window.addEventListener("resize", () => {
-  clearTimeout(resizeTick);
-  resizeTick = setTimeout(() => {
-    // Do lightweight layout updates here instead of location.reload()
-    // if (window.chart) window.chart.reflow();
-  }, 150);
-});
-
-// --- 5) (Optional) Wire to your login success event if emitted elsewhere ---
-// Example: if <login-form> dispatches a CustomEvent("login-success", { detail:{token, data} })
-document.addEventListener("login-success", (e) => {
-  const { token, data } = e.detail || {};
-  if (!token) return;
-  actions.loginSuccess({ token, data }); // updates auth/apiClient/appState
-  // render happens automatically via subscription
-});
-
-// Optional: if you fire a "logout" event elsewhere:
-document.addEventListener("logout", () => {
-  actions.logout();
-  // render happens automatically via subscription
 });
 
 function renderChart(data, enableZoom = true) {
